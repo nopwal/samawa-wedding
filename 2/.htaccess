@@ -1,0 +1,14 @@
+Options ALL -Indexes
+
+ErrorDocument 404 "<script> window.location= '404.php' </script>"
+
+<Files install.php>
+allow from all
+</Files>
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteEngine on  
+
+RewriteRule ^([a-zA-Z0-9\-=&_@\.\,\)\(]*)$ index.php?link=$1
+#RewriteRule ^([0-9]+)/([a-zA-Z0-9\-=&_@\.\,\)\(]*)$ /1/index.php?link=$2
